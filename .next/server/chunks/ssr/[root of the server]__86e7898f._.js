@@ -20,6 +20,13 @@ module.exports = mod;
 
 var { g: global, d: __dirname, m: module, e: exports } = __turbopack_context__;
 {
+"use strict";
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+exports._ = _interop_require_default;
 }}),
 "[project]/node_modules/next/dist/shared/lib/utils.js [ssr] (ecmascript)": (function(__turbopack_context__) {
 

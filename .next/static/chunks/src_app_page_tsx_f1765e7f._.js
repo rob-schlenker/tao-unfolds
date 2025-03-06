@@ -13,8 +13,8 @@
     "static/chunks/node_modules_three_build_three_module_90b4155f.js",
     "static/chunks/node_modules_react-reconciler_25c8ec02._.js",
     "static/chunks/node_modules_@react-three_fiber_dist_bfe1106b._.js",
-    "static/chunks/node_modules_622938ed._.js",
-    "static/chunks/src_89e70f9b._.js"
+    "static/chunks/node_modules_33bd57a7._.js",
+    "static/chunks/src_0d8058fe._.js"
   ],
   "source": "dynamic"
 });

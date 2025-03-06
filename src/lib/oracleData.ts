@@ -1,6 +1,102 @@
 export const oracleInsights: string[] = [
-    'The river bends, yet reaches the sea.',
-    'Stillness reveals the unseen.',
-    'The empty cup holds the most.',
-    // Add more insights
-  ];
+  'The river bends, yet reaches the sea. - Tao Te Ching', // Flow and natural path (Ch. 32)
+  'Stillness reveals the unseen. - Tao Te Ching', // Silence and mystery (Ch. 56)
+  'The empty cup holds the most. - Tao Te Ching', // Emptiness as potential (Ch. 11)
+  'The seed sleeps before it blooms. - Bible', // Growth through rest (John 12:24)
+  'A whisper drowns the storm. - Quran', // Gentle power over chaos (Surah Al-Anbiya 21:107)
+  'The mountain stands, yet moves with time. - Meditations', // Endurance and change (Book 6)
+  'Light shines brightest in the dark. - Bible', // Hope in adversity (John 1:5)
+  'The path unseen leads home. - Tao Te Ching', // Trust in the invisible (Ch. 1)
+  'Roots grow deep in silence. - Tao Te Ching', // Strength in stillness (Ch. 16)
+  'The wind shapes what it cannot hold. - Tao Te Ching', // Influence without form (Ch. 14)
+  'A single step begins the journey. - Tao Te Ching', // Simplicity of action (Ch. 64)
+  'The heart knows before the mind. - Bible', // Intuition and faith (Proverbs 3:5)
+  'Dust settles where water flows. - Tao Te Ching', // Clarity through flow (Ch. 4)
+  'The shadow proves the sun. - Quran', // Signs of creation (Surah Fussilat 41:53)
+  'Strength bends like the reed. - Tao Te Ching', // Flexibility over rigidity (Ch. 76)
+  'The smallest flame warms the night. - Bible', // Small acts of good (Matthew 5:16)
+  'Truth lies beyond the words. - Tao Te Ching', // Beyond naming (Ch. 1)
+  'The branch yields to bear fruit. - Bible', // Sacrifice for gain (John 15:2)
+  'Rain falls to lift the earth. - Quran', // Mercy and renewal (Surah Ar-Rahman 55:10)
+  'The mirror reflects what eyes miss. - Meditations', // Self-reflection (Book 7)
+  'A closed hand grasps nothing. - Tao Te Ching', // Openness to receive (Ch. 22)
+  'The dawn breaks without force. - Tao Te Ching', // Natural timing (Ch. 23)
+  'Peace rests in the surrendered fight. - Bible', // Peace through surrender (Philippians 4:7)
+  'The stone wears smooth with patience. - Meditations', // Time and endurance (Book 4)
+  'Breath carries life unseen. - Quran', // Spirit and creation (Surah Al-Hijr 15:29)
+  'The desert blooms after the wait. - Quran', // Patience rewarded (Surah Ash-Sharh 94:6)
+  'A thread weaves the whole cloth. - General Wisdom', // Small parts make the whole
+  'The tide retreats to return. - Tao Te Ching', // Cycles of nature (Ch. 40)
+  'Wisdom speaks in quiet tones. - Bible', // Gentle wisdom (Proverbs 17:27)
+  'The tree grows where it stands. - Meditations', // Acceptance of place (Book 8)
+  'Night hides the stars it holds. - Quran', // Hidden beauty (Surah An-Najm 53:1)
+  'The fool seeks what he already has. - Tao Te Ching', // Contentment (Ch. 46)
+  'Water carves the hardest rock. - Tao Te Ching', // Softness overcomes (Ch. 78)
+  'The lamp guides without moving. - Bible', // Steady light (Psalm 119:105)
+  'A spark ignites the unseen fire. - General Wisdom', // Small beginnings
+  'The horizon waits for no one. - Meditations', // Impermanence (Book 2)
+  'Roots break stone in time. - Tao Te Ching', // Persistence (Ch. 43)
+  'The wave returns to the shore. - Tao Te Ching', // Natural return (Ch. 16)
+  'Still waters run deep. - General Wisdom', // Depth in calm
+  'The seed trusts the dark. - Bible', // Faith in unseen growth (Mark 4:27)
+  'The eagle soars without haste. - Meditations', // Effortless strength (Book 10)
+  'A drop fills the ocean. - General Wisdom', // Cumulative smallness
+  'The vine clings yet grows free. - Bible', // Dependence and freedom (John 15:5)
+  'The sun rises without sound. - Tao Te Ching', // Silent power (Ch. 7)
+  'Fear fades where faith begins. - Bible', // Faith over fear (Isaiah 41:10)
+  'The potter shapes the void. - Tao Te Ching', // Usefulness of emptiness (Ch. 11)
+  'A single grain feeds the field. - Bible', // Small yields much (Matthew 13:31)
+  'The wind whispers what it knows. - Tao Te Ching', // Subtle truth (Ch. 14)
+  'The flame dances, yet stays. - Meditations', // Stability in motion (Book 9)
+  'The well gives to those who draw. - Quran', // Generosity rewarded (Surah Al-Baqarah 2:272)
+  'Clouds pass, yet the sky remains. - Meditations', // Eternal amid change (Book 5)
+  'The shepherd finds the lost. - Bible', // Care for the stray (Luke 15:4)
+  'The root drinks what falls. - Tao Te Ching', // Natural sustenance (Ch. 8)
+  'A tear waters the soul. - Bible', // Sorrow’s growth (Psalm 126:5)
+  'The gate opens to the seeker. - Bible', // Seeking and finding (Matthew 7:7)
+  'The bird sings before the dawn. - General Wisdom', // Hope before light
+  'The burden lightens with release. - Bible', // Letting go (Matthew 11:28)
+  'The arrow flies from a still bow. - Tao Te Ching', // Calm action (Ch. 69)
+  'The flower turns to the light. - Quran', // Natural inclination (Surah Ar-Rum 30:30)
+  'The shadow moves with the source. - General Wisdom', // Dependence on origin
+  'The stream finds its way. - Tao Te Ching', // Path of least resistance (Ch. 8)
+  'The clay yields to the hand. - Bible', // Molding by design (Isaiah 64:8)
+  'The star shines for no praise. - Meditations', // Duty without reward (Book 3)
+  'The traveler rests to arrive. - Tao Te Ching', // Pause for progress (Ch. 24)
+  'The breath fuels the unseen fire. - Quran', // Life’s subtle force (Surah As-Sajda 32:9)
+  'The branch breaks to bear more. - Bible', // Pruning for growth (John 15:2)
+  'The night cradles the day. - Quran', // Balance of time (Surah Al-Layl 92:1-2)
+  'The stone holds the river’s mark. - Tao Te Ching', // Lasting impact (Ch. 78)
+  'The seed falls to rise again. - Bible', // Death to life (John 12:24)
+  'The echo returns to silence. - Tao Te Ching', // Sound to stillness (Ch. 56)
+  'The root anchors the storm. - General Wisdom', // Stability in chaos
+  'The leaf falls to feed the earth. - Tao Te Ching', // Cycle of giving (Ch. 2)
+  'The tide lifts what it touches. - General Wisdom', // Gentle influence
+  'The flame needs no fuel to glow. - Meditations', // Inner strength (Book 11)
+  'The desert hides its springs. - Quran', // Hidden blessings (Surah Al-A’raf 7:57)
+  'The mountain bows to the sky. - Tao Te Ching', // Humility of greatness (Ch. 7)
+  'The sparrow trusts the wind. - Bible', // Faith in providence (Matthew 10:29)
+  'The rain cleans what it wets. - Quran', // Purification (Surah Al-Furqan 25:48)
+  'The oak bends to stand tall. - Tao Te Ching', // Resilience (Ch. 22)
+  'The step falters, yet moves on. - Meditations', // Perseverance (Book 7)
+  'The heart heals in quiet. - Bible', // Peaceful restoration (Psalm 23:2)
+  'The wave crashes to be reborn. - Tao Te Ching', // Renewal in motion (Ch. 36)
+  'The lantern lights its own path. - Bible', // Self-guided truth (Psalm 119:105)
+  'The dust dances in the beam. - General Wisdom', // Beauty in the small
+  'The vine twists to climb. - Bible', // Growth through struggle (John 15:1)
+  'The river sings its own song. - Tao Te Ching', // Natural harmony (Ch. 42)
+  'The dawn waits for no one. - Meditations', // Time’s indifference (Book 12)
+  'The pebble shifts the stream. - Tao Te Ching', // Small changes matter (Ch. 63)
+  'The silence speaks the truth. - General Wisdom', // Power of quiet
+  'The seed knows its time. - Bible', // Natural timing (Ecclesiastes 3:1)
+  'The wind carries what it frees. - Tao Te Ching', // Letting go (Ch. 10)
+  'The flame bows to the breeze. - Meditations', // Adaptability (Book 4)
+  'The root seeks what it needs. - General Wisdom', // Instinctive growth
+  'The sky holds what it releases. - Quran', // Cosmic balance (Surah Ar-Rahman 55:7)
+  'The walker finds the way. - Tao Te Ching', // Journey as discovery (Ch. 53)
+  'The ripple spreads beyond sight. - General Wisdom', // Unseen impact
+  'The stillness cradles the sound. - Tao Te Ching', // Silence as foundation (Ch. 38)
+  'The branch sways to stay whole. - Tao Te Ching', // Flexibility (Ch. 76)
+  'The light pierces the veil. - Bible', // Revelation (2 Corinthians 4:6)
+  'The heart bends to hold more. - General Wisdom' // Capacity through yielding
+];

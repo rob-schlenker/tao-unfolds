@@ -1,26 +1,15 @@
-import DailyChapter from '@/components/core/DailyChapter';
-import AudioPlayer from '@/components/core/AudioPlayer';
-import ReflectionBox from '@/components/core/ReflectionBox';
-import BreathExercise from '@/components/interactive/BreathExercise';
-import BackgroundCanvas from '@/components/interactive/BackgroundCanvas';
-import OracleButton from '@/components/interactive/OracleButton';
-import { getDailyChapter } from '@/lib/chapters';
+import ChapterDisplay from '@/components/core/ChapterDisplay';
+import { getDailyChapter, getChapterByNumber } from '@/lib/chapters';
 
-export default async function Home() {
-  const chapter = await getDailyChapter();
-  const song = 'Rest';
-  return (
-    <div className="container mx-auto p-4 text-black">
-      <BackgroundCanvas theme="day" chapterNumber={chapter.number} />
-      <DailyChapter chapter={chapter} translation="Legge" />
-      <AudioPlayer
-        audioSrc={`/audio/chapter-${chapter.number}.mp3`}
-        ambientSrc={`/audio/${song}.mp3`}
-      />
-      <p className="text-center text-sm text-gray-500 my-4">Music:  Drone in G Major by Rest You Sleeping Giant</p>
-      <ReflectionBox chapterNumber={chapter.number} />
-      <BreathExercise duration={30} />
-      <OracleButton chapterNumber={chapter.number} />
-    </div>
-  );
+export default async function Home({ searchParams }: { searchParams: { 'chapter-number'?: string } }) {
+  const chapterNumber = searchParams['chapter-number'];
+  const chapter = chapterNumber
+    ? await getChapterByNumber(Number(chapterNumber))
+    : await getDailyChapter();
+
+  if (!chapter || chapter.number === 0) {
+    return <div className="text-center p-4">Chapter not found. Showing daily chapter instead.</div>;
+  }
+
+  return <ChapterDisplay initialChapter={chapter} />;
 }

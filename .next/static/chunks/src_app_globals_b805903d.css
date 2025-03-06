@@ -216,6 +216,10 @@
 }
 
 @layer utilities {
+  .invisible {
+    visibility: hidden;
+  }
+
   .absolute {
     position: absolute;
   }
@@ -538,6 +542,10 @@
   .focus\:outline-none:focus {
     --tw-outline-style: none;
     outline-style: none;
+  }
+
+  .disabled\:opacity-50:disabled {
+    opacity: .5;
   }
 }
 

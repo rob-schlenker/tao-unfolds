@@ -19,15 +19,15 @@ const OracleButton: React.FC<OracleButtonProps> = ({ chapterNumber }) => {
     <div className="mt-6 text-center">
       <button
         onClick={getInsight}
-        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-black"
       >
-        Consult the Tao
+        Get Wisdom
       </button>
       {insight && (
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mt-2 italic text-gray-600"
+          className="mt-2 italic text-white"
         >
           "{insight}"
         </motion.p>
