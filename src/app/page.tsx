@@ -8,14 +8,16 @@ import { getDailyChapter } from '@/lib/chapters';
 
 export default async function Home() {
   const chapter = await getDailyChapter();
+  const song = 'Rest';
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 text-black">
       <BackgroundCanvas theme="day" chapterNumber={chapter.number} />
       <DailyChapter chapter={chapter} translation="Legge" />
       <AudioPlayer
         audioSrc={`/audio/chapter-${chapter.number}.mp3`}
-        ambientSrc="/audio/stream.mp3"
+        ambientSrc={`/audio/${song}.mp3`}
       />
+      <p className="text-center text-sm text-gray-500 my-4">Music:  Drone in G Major by Rest You Sleeping Giant</p>
       <ReflectionBox chapterNumber={chapter.number} />
       <BreathExercise duration={30} />
       <OracleButton chapterNumber={chapter.number} />
