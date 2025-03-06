@@ -1,8 +1,9 @@
 import ChapterDisplay from '@/components/core/ChapterDisplay';
 import { getDailyChapter, getChapterByNumber } from '@/lib/chapters';
 
-export default async function Home({ searchParams }: { searchParams: { 'chapter-number'?: string } }) {
-  const chapterNumber = searchParams['chapter-number'];
+export default async function Home({ searchParams }: { searchParams: Promise<{ 'chapter-number'?: string }> }) {
+  const resolvedSearchParams = await searchParams; // Await the Promise
+  const chapterNumber = resolvedSearchParams['chapter-number'];
   const chapter = chapterNumber
     ? await getChapterByNumber(Number(chapterNumber))
     : await getDailyChapter();
