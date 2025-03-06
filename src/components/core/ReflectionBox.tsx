@@ -16,7 +16,15 @@ const ReflectionBox: React.FC<ReflectionBoxProps> = ({ chapterNumber }) => {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
     setReflection(text);
-    localStorage.setItem(`reflection-${chapterNumber}`, text);
+    const timeout = setTimeout(() => {
+      localStorage.setItem(`reflection-${chapterNumber}`, text);
+    }, 500); // Save after 500ms of no typing
+    return () => clearTimeout(timeout);
+  };
+
+  const clearReflection = () => {
+    setReflection('');
+    localStorage.removeItem(`reflection-${chapterNumber}`);
   };
 
   return (
@@ -27,6 +35,9 @@ const ReflectionBox: React.FC<ReflectionBoxProps> = ({ chapterNumber }) => {
         placeholder="Reflect on this chapter..."
         className="w-full h-24 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-gray-300"
       />
+      <button
+        onClick={clearReflection}
+        className="mt-2 px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none">Clear Reflection</button>
     </div>
   );
 };

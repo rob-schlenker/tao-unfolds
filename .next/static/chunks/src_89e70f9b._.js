@@ -188,23 +188,41 @@ const ReflectionBox = ({ chapterNumber })=>{
     const handleChange = (e)=>{
         const text = e.target.value;
         setReflection(text);
-        localStorage.setItem(`reflection-${chapterNumber}`, text);
+        const timeout = setTimeout(()=>{
+            localStorage.setItem(`reflection-${chapterNumber}`, text);
+        }, 500); // Save after 500ms of no typing
+        return ()=>clearTimeout(timeout);
+    };
+    const clearReflection = ()=>{
+        setReflection('');
+        localStorage.removeItem(`reflection-${chapterNumber}`);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "mt-6 p-4 bg-white bg-opacity-80 rounded-lg shadow-md",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-            value: reflection,
-            onChange: handleChange,
-            placeholder: "Reflect on this chapter...",
-            className: "w-full h-24 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-gray-300"
-        }, void 0, false, {
-            fileName: "[project]/src/components/core/ReflectionBox.tsx",
-            lineNumber: 24,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                value: reflection,
+                onChange: handleChange,
+                placeholder: "Reflect on this chapter...",
+                className: "w-full h-24 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-gray-300"
+            }, void 0, false, {
+                fileName: "[project]/src/components/core/ReflectionBox.tsx",
+                lineNumber: 32,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                onClick: clearReflection,
+                className: "mt-2 px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none",
+                children: "Clear Reflection"
+            }, void 0, false, {
+                fileName: "[project]/src/components/core/ReflectionBox.tsx",
+                lineNumber: 38,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/components/core/ReflectionBox.tsx",
-        lineNumber: 23,
+        lineNumber: 31,
         columnNumber: 5
     }, this);
 };
@@ -301,8 +319,8 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-// Shader for radial ripple effect
-const RippleShader = {
+// Shader for water-like waves
+const WaterShader = {
     uniforms: {
         uTime: {
             value: 0.0
@@ -311,28 +329,22 @@ const RippleShader = {
             value: new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Color"]('#87CEEB')
         },
         uAmplitude: {
-            value: 1.15
+            value: 0.1
         },
         uFrequency: {
-            value: 6.0
-        },
-        uSpeed: {
-            value: 0.2
+            value: 2.0
         }
     },
     vertexShader: `
     uniform float uTime;
     uniform float uAmplitude;
     uniform float uFrequency;
-    uniform float uSpeed;
     varying vec2 vUv;
 
     void main() {
       vUv = uv;
       vec3 pos = position;
-      vec2 center = vec2(0.0, 0.0); // Center of the plane
-      float dist = distance(pos.xy, center); // Distance from center
-      pos.z = sin(dist * uFrequency - uTime * uSpeed) * uAmplitude; // Radial wave
+      pos.z += sin(pos.x * uFrequency + uTime) * cos(pos.y * uFrequency + uTime) * uAmplitude;
       gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     }
   `,
@@ -345,18 +357,18 @@ const RippleShader = {
     }
   `
 };
-const RipplePlane = ({ theme })=>{
+const WaterPlane = ({ theme })=>{
     _s();
     const meshRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const shaderRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    // Animate the ripples
+    // Animate the waves
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$2895749c$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__C__as__useFrame$3e$__["useFrame"])({
-        "RipplePlane.useFrame": (state)=>{
+        "WaterPlane.useFrame": (state)=>{
             if (shaderRef.current) {
                 shaderRef.current.uniforms.uTime.value = state.clock.getElapsedTime();
             }
         }
-    }["RipplePlane.useFrame"]);
+    }["WaterPlane.useFrame"]);
     // Set color based on theme
     const color = theme === 'day' ? '#87CEEB' : '#1E3A8A'; // Day: light blue, Night: dark blue
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("mesh", {
@@ -371,7 +383,7 @@ const RipplePlane = ({ theme })=>{
                 ]
             }, void 0, false, {
                 fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-                lineNumber: 63,
+                lineNumber: 59,
                 columnNumber: 7
             }, this),
             " ",
@@ -379,28 +391,28 @@ const RipplePlane = ({ theme })=>{
                 ref: shaderRef,
                 attach: "material",
                 args: [
-                    RippleShader
+                    WaterShader
                 ],
                 "uniforms-uColor-value": new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$three$2f$build$2f$three$2e$core$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Color"](color),
                 transparent: true
             }, void 0, false, {
                 fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-                lineNumber: 64,
+                lineNumber: 60,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-        lineNumber: 62,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 };
-_s(RipplePlane, "FTMq2KQCKUn0ybRXIP3KjPr6AjE=", false, function() {
+_s(WaterPlane, "FTMq2KQCKUn0ybRXIP3KjPr6AjE=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$react$2d$three$2f$fiber$2f$dist$2f$events$2d$2895749c$2e$esm$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__C__as__useFrame$3e$__["useFrame"]
     ];
 });
-_c = RipplePlane;
+_c = WaterPlane;
 const BackgroundCanvas = ({ theme, chapterNumber })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "absolute inset-0 -z-10",
@@ -418,7 +430,7 @@ const BackgroundCanvas = ({ theme, chapterNumber })=>{
                     intensity: 0.5
                 }, void 0, false, {
                     fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-                    lineNumber: 79,
+                    lineNumber: 75,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("pointLight", {
@@ -429,32 +441,32 @@ const BackgroundCanvas = ({ theme, chapterNumber })=>{
                     ]
                 }, void 0, false, {
                     fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-                    lineNumber: 80,
+                    lineNumber: 76,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(RipplePlane, {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(WaterPlane, {
                     theme: theme
                 }, void 0, false, {
                     fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-                    lineNumber: 81,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-            lineNumber: 78,
+            lineNumber: 74,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/interactive/BackgroundCanvas.tsx",
-        lineNumber: 77,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 };
 _c1 = BackgroundCanvas;
 const __TURBOPACK__default__export__ = BackgroundCanvas;
 var _c, _c1;
-__turbopack_context__.k.register(_c, "RipplePlane");
+__turbopack_context__.k.register(_c, "WaterPlane");
 __turbopack_context__.k.register(_c1, "BackgroundCanvas");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
