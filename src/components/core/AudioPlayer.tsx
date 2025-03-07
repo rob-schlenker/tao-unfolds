@@ -28,7 +28,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ ambientSrc, songArtistTitle }
         barWidth: 2,
         barRadius: 3,
         height: 100,
-        responsive: true,
         normalize: true,
         // Removed backend: 'MediaElement' to use WebAudio by default
       });
