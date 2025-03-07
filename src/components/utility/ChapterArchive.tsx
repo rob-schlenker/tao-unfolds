@@ -34,7 +34,7 @@ const ChapterArchive: React.FC<ChapterArchiveProps> = ({ chapters }) => {
           <li
             key={chapter.number}
             onClick={() => handleSelect(chapter)}
-            className="p-4 m-0 bg-white rounded cursor-pointer transition-all outline-1 outline-gray-500 duration-300 hover:bg-gray-200 hover:outline-2 hover:outline-amber-400 text-center"
+            className="text-sage-dark p-4 m-0 bg-white rounded cursor-pointer transition-all outline-1 outline-gray-500 duration-300 hover:bg-gray-200 hover:outline-2 hover:outline-amber-400 text-center"
           >
             Chapter {chapter.number}
           </li>

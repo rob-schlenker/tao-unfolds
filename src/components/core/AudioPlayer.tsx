@@ -65,7 +65,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ ambientSrc, songArtistTitle }
         wavesurfer.current.pause();
       }
     }
-  }, [isPlaying]);
+  }, [isPlaying, volume, isMuted]);
 
   // Handle volume and mute
   useEffect(() => {

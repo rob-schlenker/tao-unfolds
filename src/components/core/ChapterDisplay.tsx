@@ -41,7 +41,7 @@ const ChapterDisplay: React.FC<ChapterDisplayProps> = ({ initialChapter }) => {
               Mindful Breathing
             </h3>
             <p className="mb-4">
-              Take a moment to breathe and reflect on today's wisdom.
+              Take a moment to breathe and reflect on today&apos;s wisdom.
             </p>
             <BreathExercise duration={30} />
 
@@ -61,7 +61,7 @@ const ChapterDisplay: React.FC<ChapterDisplayProps> = ({ initialChapter }) => {
               Reflect & Journal
             </h3>
             <p className="mb-2">
-              What thoughts arise as you contemplate today's chapter?
+              What thoughts arise as you contemplate today&apos;s chapter?
             </p>
             <ReflectionBox chapterNumber={chapter.number} />
           </div>
