@@ -1,6 +1,5 @@
 import ChapterArchive from '@/components/utility/ChapterArchive';
 import { getAllChapters } from '@/lib/chapters';
-import { Chapter } from '@/lib/chapters';
 
 export default async function ArchivePage() {
   const chapters = await getAllChapters();
