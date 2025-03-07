@@ -103,3 +103,7 @@ export interface Chapter {
     const chapter = chapters.find(ch => ch.number === number);
     return chapter || { number: 0, title: 'Not Found', text: 'Chapter not available.' };
   }
+
+  export async function getAllChapters(): Promise<Chapter[]> {
+    return chapters;
+  }

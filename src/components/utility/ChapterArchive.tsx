@@ -1,19 +1,24 @@
 'use client';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Chapter } from '@/lib/chapters';
 
 interface ChapterArchiveProps {
   chapters: Chapter[];
-  onSelect: (chapter: Chapter) => void;
 }
 
-const ChapterArchive: React.FC<ChapterArchiveProps> = ({ chapters, onSelect }) => {
+const ChapterArchive: React.FC<ChapterArchiveProps> = ({ chapters }) => {
   const [search, setSearch] = useState('');
+  const router = useRouter();
 
   const filteredChapters = chapters.filter(ch =>
     ch.text.toLowerCase().includes(search.toLowerCase()) ||
     ch.number.toString().includes(search)
   );
+
+  const handleSelect = (chapter: Chapter) => {
+    router.push(`/?chapter-number=${chapter.number}`);
+  };
 
   return (
     <div className="p-6">
@@ -28,7 +33,7 @@ const ChapterArchive: React.FC<ChapterArchiveProps> = ({ chapters, onSelect }) =
         {filteredChapters.map((chapter) => (
           <li
             key={chapter.number}
-            onClick={() => onSelect(chapter)}
+            onClick={() => handleSelect(chapter)}
             className="p-2 bg-white rounded cursor-pointer hover:bg-gray-100"
           >
             Chapter {chapter.number}
