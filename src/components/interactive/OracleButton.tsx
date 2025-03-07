@@ -12,18 +12,18 @@ const OracleButton: React.FC = () => {
   };
 
   return (
-    <div className="mt-6 text-center">
+    <div className="mt-6 text-center ">
       <button
         onClick={getInsight}
         className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
       >
-        Consult the Tao
+        Gain Knowledge
       </button>
       {insight && (
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mt-2 italic text-gray-600"
+          className="mt-2 italic text-black"
         >
           {insight}
         </motion.p>

@@ -28,11 +28,12 @@ const ChapterDisplay: React.FC<ChapterDisplayProps> = ({ initialChapter }) => {
   }, [initialChapter]);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 text-black">
       <BackgroundCanvas theme="day" /> {/* Removed chapterNumber */}
       <DailyChapter chapter={chapter} translation="Legge" />
       <AudioPlayer
-        ambientSrc="/audio/stream.mp3"
+        ambientSrc="/audio/Rest.mp3"
+        songArtistTitle="Drone in G Major by Rest You Sleeping Giant"
       />
       <ReflectionBox chapterNumber={chapter.number} />
       <BreathExercise duration={30} />
