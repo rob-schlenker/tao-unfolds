@@ -3,11 +3,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
 
 interface AudioPlayerProps {
-  audioSrc: string;
   ambientSrc: string;
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, ambientSrc }) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ ambientSrc }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const ambientRef = useRef<HTMLAudioElement | null>(null);
@@ -33,7 +32,6 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, ambientSrc }) => {
       >
         {isPlaying ? <FaPause /> : <FaPlay />}
       </button>
-      <audio ref={audioRef} src={audioSrc} />
       <audio ref={ambientRef} src={ambientSrc} />
     </div>
   );

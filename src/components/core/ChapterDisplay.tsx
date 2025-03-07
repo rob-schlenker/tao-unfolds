@@ -20,29 +20,23 @@ const ChapterDisplay: React.FC<ChapterDisplayProps> = ({ initialChapter }) => {
 
   const handleNewChapter = (newChapter: Chapter) => {
     setChapter(newChapter);
-    // Update URL without reloading the page
     router.push(`/?chapter-number=${newChapter.number}`, { scroll: false });
   };
 
-  // Sync chapter with URL changes (e.g., browser back/forward)
   useEffect(() => {
     setChapter(initialChapter);
   }, [initialChapter]);
 
-  const song = 'Rest';
-
   return (
     <div className="container mx-auto p-4">
-      <BackgroundCanvas theme="day" chapterNumber={chapter.number} />
+      <BackgroundCanvas theme="day" /> {/* Removed chapterNumber */}
       <DailyChapter chapter={chapter} translation="Legge" />
       <AudioPlayer
-        audioSrc={`/audio/chapter-${chapter.number}.mp3`}
-        ambientSrc={`/audio/${song}.mp3"`}
+        ambientSrc="/audio/stream.mp3"
       />
-      <p className="text-center text-sm text-gray-500 my-4">Music:  Drone in G Major by Rest You Sleeping Giant</p>
       <ReflectionBox chapterNumber={chapter.number} />
       <BreathExercise duration={30} />
-      <OracleButton chapterNumber={chapter.number} />
+      <OracleButton />
       <NewChapterButton onNewChapter={handleNewChapter} />
     </div>
   );
