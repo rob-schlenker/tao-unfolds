@@ -3,11 +3,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { oracleInsights } from '@/lib/oracleData';
 
-interface OracleButtonProps {
-  chapterNumber: number;
-}
+interface OracleButtonProps {}
 
-const OracleButton: React.FC<OracleButtonProps> = ({ chapterNumber }) => {
+const OracleButton: React.FC<OracleButtonProps> = () => {
   const [insight, setInsight] = useState<string | null>(null);
 
   const getInsight = () => {
@@ -29,7 +27,7 @@ const OracleButton: React.FC<OracleButtonProps> = ({ chapterNumber }) => {
           animate={{ opacity: 1 }}
           className="mt-2 italic text-white"
         >
-          "{insight}"
+          {insight}
         </motion.p>
       )}
     </div>

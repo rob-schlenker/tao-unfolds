@@ -6,7 +6,6 @@ import * as THREE from 'three';
 // Define props interface
 interface BackgroundCanvasProps {
   theme: 'day' | 'night';
-  chapterNumber: number;
 }
 
 // Shader for water-like waves
@@ -68,7 +67,7 @@ const WaterPlane: React.FC<{ theme: 'day' | 'night' }> = ({ theme }) => {
   );
 };
 
-const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({ theme, chapterNumber }) => {
+const BackgroundCanvas: React.FC<BackgroundCanvasProps> = ({ theme }) => {
   return (
     <div className="absolute inset-0 -z-10">
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
