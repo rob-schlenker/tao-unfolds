@@ -6,7 +6,7 @@ export default async function ArchivePage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-light text-center p-6">Chapter Archive</h1>
+      <h1 className="text-3xl font-light text-center p-6 text-black">Chapter Archive</h1>
       <ChapterArchive chapters={chapters} />
     </div>
   );

@@ -37,7 +37,7 @@ const ReflectionBox: React.FC<ReflectionBoxProps> = ({ chapterNumber }) => {
       />
       <button
         onClick={clearReflection}
-        className="mt-2 px-4 py-2 text-sm text-white bg-red-500 rounded hover:bg-red-600 focus:outline-none">Clear Reflection</button>
+        className="bg-sage-light text-sage-dark px-6 py-3 rounded-full text-lg transition-all duration-300 mx-auto block hover:bg-sage hover:text-white">Clear Reflection</button>
     </div>
   );
 };
