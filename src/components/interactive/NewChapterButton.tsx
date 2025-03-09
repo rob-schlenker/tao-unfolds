@@ -27,7 +27,7 @@ const NewChapterButton: React.FC<NewChapterButtonProps> = ({ onNewChapter }) => 
     <button
       onClick={fetchNewChapter}
       disabled={isLoading}
-      className="mt-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+      className="bg-sage text-white px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
     >
       {isLoading ? 'Loading...' : 'Get a New Chapter'}
     </button>

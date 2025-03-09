@@ -67,11 +67,12 @@ const ChapterDisplay: React.FC<ChapterDisplayProps> = ({ initialChapter }) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center gap-5 mt-6">
-      <NewChapterButton onNewChapter={handleNewChapter} />
-      <OracleButton />
-    </div>
-
+      <div className="flex justify-center gap-5 mt-6 flex-col">
+        <div className="flex flex-col items-center gap-2">
+          <NewChapterButton onNewChapter={handleNewChapter} />
+        </div>
+        <OracleButton />
+      </div>
     </div>
   )
 }

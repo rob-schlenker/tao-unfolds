@@ -12,10 +12,10 @@ const OracleButton: React.FC = () => {
   };
 
   return (
-    <div className="mt-6 text-center ">
+    <div className="flex flex-col items-center gap-2">
       <button
         onClick={getInsight}
-        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        className="bg-gold text-white px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
       >
         Gain Knowledge
       </button>
