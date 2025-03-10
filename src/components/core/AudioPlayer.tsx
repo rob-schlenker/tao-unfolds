@@ -108,7 +108,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ ambientSrc, songArtistTitle }
           >
             {isMuted ? <FaVolumeMute className="text-gray-700" /> : <FaVolumeUp className="text-gray-700" />}
           </button>
-          {/* <input
+          <input
             type="range"
             min="0"
             max="1"
@@ -121,7 +121,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ ambientSrc, songArtistTitle }
             className="w-24 accent-gray-500"
             disabled={isMuted}
             aria-label="Volume"
-          /> */}
+          />
         </div>
       </div>
 
