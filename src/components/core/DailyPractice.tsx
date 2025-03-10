@@ -20,6 +20,7 @@ const DailyPractice: React.FC = () => {
   }, [isExpanded]);
 
   return (
+    /* eslint-disable react/no-unescaped-entities */ 
     <div className="mt-6 p-4 bg-white bg-opacity-80 rounded-lg shadow-md max-w-2xl mx-auto">
       <h2 className="text-2xl font-light text-sage-dark mb-4 text-center">
         Practicing Taoism for 5-10 Minutes a Day
