@@ -9,6 +9,7 @@ import BreathExercise from '@/components/interactive/BreathExercise'
 import OracleButton from '@/components/interactive/OracleButton'
 import NewChapterButton from '@/components/interactive/NewChapterButton'
 import Hero from '@/components/core/Hero'
+import DailyPractice from './DailyPractice'
 import { Chapter } from '@/lib/chapters'
 
 interface ChapterDisplayProps {
@@ -66,6 +67,9 @@ const ChapterDisplay: React.FC<ChapterDisplayProps> = ({ initialChapter }) => {
             <ReflectionBox chapterNumber={chapter.number} />
           </div>
         </div>
+      </div>
+      <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-sage-light">
+        <DailyPractice />
       </div>
       <div className="flex justify-center gap-5 mt-6 flex-col">
         <div className="flex flex-col items-center gap-2">

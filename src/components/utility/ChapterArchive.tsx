@@ -29,7 +29,7 @@ const ChapterArchive: React.FC<ChapterArchiveProps> = ({ chapters }) => {
         placeholder="Search chapters..."
         className="w-full p-2 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-gray-300"
       />
-      <ul className="space-y-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
+      <ul className="space-y-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
         {filteredChapters.map((chapter) => (
           <li
             key={chapter.number}

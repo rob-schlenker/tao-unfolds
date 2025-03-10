@@ -33,7 +33,7 @@ const ReflectionBox: React.FC<ReflectionBoxProps> = ({ chapterNumber }) => {
         value={reflection}
         onChange={handleChange}
         placeholder="Reflect on this chapter..."
-        className="w-full h-24 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-gray-300"
+        className="w-full h-24 md:h-56 p-2 border rounded resize-none focus:outline-none focus:ring-2 focus:ring-gray-300"
       />
       <button
         onClick={clearReflection}
