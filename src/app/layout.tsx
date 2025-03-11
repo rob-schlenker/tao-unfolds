@@ -4,9 +4,17 @@ import { Analytics } from "@vercel/analytics/react"
 import '@/app/globals.css'
 
 export const metadata = {
-  title: 'Tao Unfolds',
-  description: 'A daily journey through the Tao Te Ching',
-}
+  title: 'Tao Unfolds - Daily Tao Te Ching Reflections',
+  description: 'Explore the Tao Te Ching with daily chapters, reflections, and Taoist practices for mindfulness and simplicity.',
+  keywords: 'Tao Te Ching, Taoism, daily meditation, mindfulness, wu wei, simplicity, Lao Tzu',
+  openGraph: {
+    title: 'Tao Unfolds - Daily Tao Te Ching Reflections',
+    description: 'A daily journey through the Tao Te Ching with reflections and practices.',
+    url: 'https://tao-unfolds.vercel.app',
+    siteName: 'Tao Unfolds',
+    type: 'website',
+  },
+};
 
 export default function RootLayout({
   children,
