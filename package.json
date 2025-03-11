@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-three/fiber": "^9.0.4",
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.4.10",
     "mongodb": "^6.14.2",
     "next": "15.2.1",

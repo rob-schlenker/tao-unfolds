@@ -1,5 +1,6 @@
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { Analytics } from "@vercel/analytics/react"
 import '@/app/globals.css'
 
 export const metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
         <Header />
         <main className="relative min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
