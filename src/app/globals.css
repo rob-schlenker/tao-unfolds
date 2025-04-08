@@ -30,3 +30,7 @@
 body {
   font-family: 'Montserrat Alternates', sans-serif;
 }
+
+button {
+  cursor: pointer;
+}

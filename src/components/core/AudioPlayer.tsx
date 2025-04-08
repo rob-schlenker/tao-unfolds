@@ -86,7 +86,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <div className="flex items-center justify-center">
         <button
           onClick={togglePlayPause}
-          className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="p-2 bg-gray-200 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 cursor-pointer"
           aria-label={isPlaying ? 'Pause' : 'Play'}
           disabled={isLoading}
         >
